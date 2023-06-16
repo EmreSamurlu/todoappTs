@@ -1,14 +1,15 @@
 import React from 'react';
 import {TextInput as Input, View} from 'react-native';
 
-interface Props {
+export interface TextInputProps {
   onChangeText: () => void;
+  placeholder: string;
 }
 
-const TextInput: React.FC<Props> = ({onChangeText}) => {
+const TextInput: React.FC<TextInputProps> = ({onChangeText, placeholder}) => {
   return (
     <View>
-      <Input onChangeText={onChangeText} />
+      <Input onChangeText={onChangeText} placeholder={placeholder} />
     </View>
   );
 };
