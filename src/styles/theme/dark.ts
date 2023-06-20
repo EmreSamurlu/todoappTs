@@ -1,4 +1,4 @@
-export const dark = {
+export const darkTheme = {
   dark: true,
   colors: {
     primary: 'rgb(255, 45, 85)',

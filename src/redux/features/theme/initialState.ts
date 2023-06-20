@@ -5,7 +5,7 @@ export interface Theme {
 }
 
 export const initialState: Theme = {
-  theme: '',
+  theme: 'light',
   themeError: null,
   themeLoading: false,
 };

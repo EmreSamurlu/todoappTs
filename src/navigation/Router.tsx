@@ -7,9 +7,9 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {setTheme} from '../redux/features/theme';
 import {RootState} from '../redux/store';
-import {darkTheme, lightTheme} from '../styles/theme';
 import Auth from './Auth/Auth';
 import routeNames, {navigationOptions} from './route-names';
+import {themeStyles} from '../styles';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,7 +18,7 @@ const Router: React.FC = () => {
   const scheme = useColorScheme();
   const {theme} = useSelector((state: RootState) => state.theme);
   const [selectedTheme, setSelectedTheme] = useState<string>();
-  console.log(theme);
+  console.log('THEME', theme);
 
   useEffect(() => {
     if (theme) {
@@ -36,7 +36,7 @@ const Router: React.FC = () => {
 
   return (
     <NavigationContainer
-      theme={selectedTheme === 'dark' ? darkTheme : lightTheme}>
+      theme={selectedTheme === 'dark' ? themeStyles.dark : themeStyles.light}>
       <Stack.Navigator screenOptions={navigationOptions}>
         <Stack.Screen name={routeNames.AuthStack} component={Auth} />
         {/* {isSignedIn ? (
