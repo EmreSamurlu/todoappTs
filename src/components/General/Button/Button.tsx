@@ -8,6 +8,7 @@ export interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({onPress, text}) => {
   const {colors} = useTheme();
+
   return (
     <TouchableOpacity
       style={[
