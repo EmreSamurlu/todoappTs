@@ -4,5 +4,5 @@ export default {
   md: 16,
   lg: 24,
   xl: 32,
-  xxl: 64,
+  xxl: 56,
 };

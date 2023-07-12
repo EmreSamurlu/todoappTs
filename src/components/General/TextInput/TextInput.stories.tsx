@@ -7,7 +7,6 @@ const TextInputMeta: Meta<TextInputProps> = {
   },
   args: {
     placeholder: 'Dummy Placeholder',
-    type: 'with_label',
   },
   title: 'TextInput',
   component: TextInput,
@@ -18,11 +17,13 @@ export const Basic: StoryObj<TextInputProps> = {};
 export const WithLabel: StoryObj<TextInputProps> = {
   args: {
     type: 'with_label',
+    label: 'Label',
   },
 };
 export const WithLabelAndIcon: StoryObj<TextInputProps> = {
   args: {
-    type: 'with_label_and_icon',
+    type: 'with_label',
+    label: 'Label',
+    iconName: 'calendar',
   },
 };
-export const BasicDark: StoryObj<TextInputProps> = {};
