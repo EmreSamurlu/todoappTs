@@ -20,8 +20,6 @@ const TextInput: React.FC<TextInputProps> = ({
 
   const styleType = getKeyValue(styles)(type);
 
-  console.log('COLORS', colors);
-
   return (
     <View
       style={[
