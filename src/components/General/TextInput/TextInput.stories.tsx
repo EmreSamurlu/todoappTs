@@ -17,10 +17,13 @@ export const Basic: StoryObj<TextInputProps> = {};
 export const WithLabel: StoryObj<TextInputProps> = {
   args: {
     type: 'with_label',
+    label: 'Label',
   },
 };
 export const WithLabelAndIcon: StoryObj<TextInputProps> = {
   args: {
-    type: 'with_label_and_icon',
+    type: 'with_label',
+    label: 'Label',
+    iconName: 'calendar',
   },
 };
