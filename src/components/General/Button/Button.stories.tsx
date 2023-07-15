@@ -1,5 +1,6 @@
 import Button, {type ButtonProps} from './Button';
 import type {Meta, StoryObj} from '@storybook/react-native';
+
 const ButtonMeta: Meta<ButtonProps> = {
   title: 'Button',
   component: Button,
@@ -7,16 +8,29 @@ const ButtonMeta: Meta<ButtonProps> = {
     onPress: {action: 'pressed the button'},
   },
   args: {
-    text: 'Hello world',
+    label: 'Button',
+    type: 'default',
   },
 };
 
 export default ButtonMeta;
 
-export const Basic: StoryObj<ButtonProps> = {};
-
-export const AnotherExample = {
+export const Basic: StoryObj<ButtonProps> = {
   args: {
-    text: 'Another example',
+    label: 'Button',
+    type: 'default',
+  },
+};
+export const Outline: StoryObj<ButtonProps> = {
+  args: {
+    label: 'Button',
+    type: 'outline',
+    iconName: 'plus',
+  },
+};
+export const Icon: StoryObj<ButtonProps> = {
+  args: {
+    type: 'icon',
+    iconName: 'plus',
   },
 };

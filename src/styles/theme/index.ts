@@ -10,9 +10,10 @@ declare module '@react-navigation/native' {
       primary: string;
       background: string;
       card: string;
-      text: string;
       border: string;
+      text: string;
       secondaryText: string;
+      buttonText: string;
       notification: string;
       blue: string;
       red: string;

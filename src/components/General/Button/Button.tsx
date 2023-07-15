@@ -1,36 +1,59 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import {useTheme} from '@react-navigation/native';
+import styles from './Button.styles';
+import Text from '../Text/Text';
+import {getKeyValue} from '../../../utils/utils';
+import Icon from '../Icon/Icon';
 export interface ButtonProps {
   onPress: () => void;
-  text: string;
+  iconName: string;
+  label: string;
+  type: any;
+  color: any;
 }
 
-const Button: React.FC<ButtonProps> = ({onPress, text}) => {
+const Button: React.FC<ButtonProps> = ({
+  onPress,
+  label,
+  iconName,
+  color = 'blue',
+  type = 'default',
+}) => {
   const {colors} = useTheme();
 
+  const styleType = getKeyValue(styles)(type);
+  const selectedColor = getKeyValue(colors)(color);
   return (
     <TouchableOpacity
+      onPress={onPress}
       style={[
-        styles.container,
+        styleType.container,
         {
-          backgroundColor: colors.blue,
+          backgroundColor: type !== 'outline' ? selectedColor : 'transparent',
+          borderColor: type === 'outline' ? selectedColor : 'transparent',
         },
       ]}
-      onPress={onPress}
       activeOpacity={0.8}>
-      <Text style={styles.text}>{text}</Text>
+      <View style={styleType.text_box}>
+        <Icon
+          iconSize={24}
+          iconName={iconName}
+          iconColor={type !== 'icon' ? selectedColor : colors.buttonText}
+        />
+        {type !== 'icon' && (
+          <Text
+            text={label}
+            textStyle={[
+              styleType.label,
+              {color: type === 'outline' ? selectedColor : colors.buttonText},
+            ]}
+          />
+        )}
+      </View>
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 8,
-  },
-  text: {color: 'white'},
-});
 
 export default Button;
