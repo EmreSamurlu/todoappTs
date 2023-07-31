@@ -5,7 +5,7 @@ import {useTheme} from '@react-navigation/native';
 import styles from './Button.styles';
 import Text from '../Text/Text';
 import {getKeyValue} from '../../../utils/utils';
-import Icon from '../Icon/Icon';
+import MaterialIcon from '../MaterialIcon/MaterialIcon';
 export interface ButtonProps {
   onPress: () => void;
   iconName: string;
@@ -37,7 +37,7 @@ const Button: React.FC<ButtonProps> = ({
       ]}
       activeOpacity={0.8}>
       <View style={styleType.text_box}>
-        <Icon
+        <MaterialIcon
           iconSize={24}
           iconName={iconName}
           iconColor={type !== 'icon' ? selectedColor : colors.buttonText}

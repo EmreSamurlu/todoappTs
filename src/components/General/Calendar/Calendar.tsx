@@ -3,6 +3,7 @@ import {useTheme} from '@react-navigation/native';
 
 import {Calendar as CalendarView, CalendarProps} from 'react-native-calendars';
 import {calendarMock} from '../../../../mockData/calendar';
+
 type date = {
   dateString: string;
 };
@@ -19,7 +20,7 @@ export interface ICalendarProps extends CalendarProps {
 const Calendar: FC<ICalendarProps> = () => {
   const {colors} = useTheme();
   const [selectedDate, setSelectedDate] = useState('');
-  const [markedDates, setMarkedDates] = useState<markedDates>({});
+  const [markedDates, setMarkedDates] = useState<markedDates>();
 
   const onDayPress = (date: date) => {
     setSelectedDate(date.dateString);
@@ -27,60 +28,33 @@ const Calendar: FC<ICalendarProps> = () => {
 
   useEffect(() => {
     const obj: any = {};
-    const periodObj: any = {};
 
     for (let i = 0; i < calendarMock.length; i++) {
       const element = calendarMock[i];
-      //*start ve end date verilerek period oluşturulabiliyor
-      // if (element.startingDay === true || element.endingDay === true) {
-      //   periodObj[element.date] = {
-      //     color: 'green',
-      //     startingDay: element.startingDay,
-      //     endingDay: element.endingDay,
-      //   };
-      // }
       obj[element.date] = {
-        marked: element.marked,
-        dotColor: colors.red,
+        periods: element.periods,
       };
     }
-
-    console.log('OBJ', obj);
-    console.log('PERID', periodObj);
-
-    // calendarMock.forEach(item => {
-    //   console.log(Object.keys(item));
-    //   obj[item.date] = {
-    //     marked: item.marked,
-    //     dotColor: colors.red,
-    //     color: 'green',
-    //     startingDay: item.startingDay && item.startingDay,
-    //     endingDay: item.endingDay && item.endingDay,
-    //   };
-    // });
     setMarkedDates(obj);
+  }, []);
 
-    if (selectedDate) {
-      const newObj: any = {};
-      newObj[selectedDate] = {
-        selected: true,
-        selectedColor: colors.blue,
-      };
-      setMarkedDates(Object.assign(newObj, obj));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedDate]);
-
-  console.log(markedDates);
+  // console.log(JSON.stringify(markedDates, null, 2));
 
   return (
     <CalendarView
       firstDay={1}
       onDayPress={onDayPress}
       markedDates={markedDates}
-      markingType="period"
+      markingType="multi-period"
       theme={{
         selectedDayBackgroundColor: colors.blue,
+        backgroundColor: colors.background,
+        calendarBackground: colors.background,
+        textSectionTitleColor: '#b6c1cd',
+        selectedDayTextColor: '#ffffff',
+        todayTextColor: '#00adf5',
+        dayTextColor: '#2d4150',
+        textDisabledColor: '#d9e',
       }}
     />
   );

@@ -11,5 +11,6 @@ export const lightTheme = {
     notification: 'rgb(255, 69, 58)',
     blue: '#1294F2',
     red: '#EF4A3C',
+    check: '#575767',
   },
 };

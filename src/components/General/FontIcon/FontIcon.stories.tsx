@@ -1,15 +1,15 @@
-import Icon, {type IconProps} from './Icon';
+import FontIcon, {type IconProps} from './FontIcon';
 import type {Meta, StoryObj} from '@storybook/react-native';
 
-const IconMeta: Meta<IconProps> = {
+const FontIconMeta: Meta<IconProps> = {
   args: {
     iconName: 'calendar',
     iconSize: 48,
     iconColor: '#1294F2',
   },
-  title: 'Icon',
-  component: Icon,
+  title: 'FontIcon',
+  component: FontIcon,
 };
 
-export default IconMeta;
+export default FontIconMeta;
 export const Basic: StoryObj<IconProps> = {};

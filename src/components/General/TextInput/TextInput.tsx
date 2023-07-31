@@ -4,7 +4,7 @@ import styles from './TextInput.styles';
 import {useTheme} from '@react-navigation/native';
 import {getKeyValue} from '../../../utils/utils';
 import Text from '../Text/Text';
-import Icon from '../Icon/Icon';
+import MaterialIcon from '../MaterialIcon/MaterialIcon';
 
 export interface TextInputProps {
   onChangeText: (text: string) => void;
@@ -52,7 +52,11 @@ const TextInput: React.FC<TextInputProps> = ({
       </View>
       {iconName && (
         <View style={[styleType.icon]}>
-          <Icon iconName={iconName} iconColor={colors.blue} iconSize={24} />
+          <MaterialIcon
+            iconName={iconName}
+            iconColor={colors.blue}
+            iconSize={24}
+          />
         </View>
       )}
     </View>

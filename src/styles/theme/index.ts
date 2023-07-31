@@ -17,6 +17,7 @@ declare module '@react-navigation/native' {
       notification: string;
       blue: string;
       red: string;
+      check: string;
     };
   };
   export function useTheme(): ExtendedTheme;

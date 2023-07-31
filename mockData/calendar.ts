@@ -3,51 +3,36 @@ interface CalendarItems {
   date: string;
   title: string;
   description: string;
-  // startingDay?: boolean;
-  // endingDay?: boolean;
-  marked: boolean;
+  startingDay?: boolean;
+  endingDay?: boolean;
+  color?: string;
+  periods?: object[];
 }
 
 export const calendarMock: CalendarItems[] = [
-  {
-    id: 1,
-    date: '2023-07-19',
-    title: 'First Task',
-    description: 'This is the first mock task description',
-    marked: true,
-  },
-  {
-    id: 2,
-    date: '2023-07-20',
-    title: 'Second Task',
-    description: 'This is the Second mock task description',
-    marked: true,
-  },
-  {
-    id: 3,
-    date: '2023-07-11',
-    title: 'Second Task',
-    description: 'This is the Second mock task description',
-    // startingDay: true,
-    // endingDay: false,
-    marked: false,
-  },
-  {
-    id: 4,
-    date: '2023-07-12',
-    title: 'Second Task',
-    description: 'This is the Second mock task description',
-    // startingDay: false,
-    // endingDay: false,
-    marked: false,
-  },
   {
     id: 5,
     date: '2023-07-13',
     title: 'Second Task',
     description: 'This is the Second mock task description',
-    // startingDay: false,
-    // endingDay: true,
-    marked: false,
+    periods: [{startingDay: true, endingDay: true, color: 'lightgreen'}],
+  },
+  {
+    id: 6,
+    date: '2023-07-14',
+    title: 'Second Task',
+    description: 'This is the Second mock task description',
+    periods: [{startingDay: false, endingDay: true, color: 'lightgreen'}],
+  },
+  {
+    id: 7,
+    date: '2023-07-15',
+    title: 'Second Task',
+    description: 'This is the Second mock task description',
+    periods: [
+      {startingDay: true, endingDay: true, color: 'orange'},
+      {color: 'transparent'},
+      {startingDay: false, endingDay: false, color: 'pink'},
+    ],
   },
 ];
