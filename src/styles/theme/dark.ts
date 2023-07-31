@@ -3,6 +3,7 @@ export const darkTheme = {
   colors: {
     primary: 'rgb(255, 45, 85)',
     background: '#141419',
+    secondBackground: '#292B35',
     card: '#2C2C30',
     border: '#B9B9B9',
     text: '#DADADA',

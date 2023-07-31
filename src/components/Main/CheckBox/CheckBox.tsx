@@ -1,18 +1,26 @@
 import {Pressable} from 'react-native';
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {useTheme} from '@react-navigation/native';
 
 import styles from './CheckBox.styles';
 import {FontIcon} from '../../General';
 
-export interface CheckBoxProps {}
+export interface CheckBoxProps {
+  checkStatus: boolean;
+}
 
-const CheckBox: FC<CheckBoxProps> = () => {
+const CheckBox: FC<CheckBoxProps> = ({checkStatus}) => {
   const {colors} = useTheme();
   const [isChecked, setIsChecked] = useState<boolean>(false);
   const handleIconPress = () => {
     setIsChecked(!isChecked);
   };
+
+  useEffect(() => {
+    if (checkStatus) {
+      setIsChecked(checkStatus);
+    }
+  }, [checkStatus]);
 
   return (
     <Pressable
@@ -21,7 +29,7 @@ const CheckBox: FC<CheckBoxProps> = () => {
         styles.container,
         {
           borderColor: colors.border,
-          backgroundColor: colors.background,
+          backgroundColor: colors.secondBackground,
         },
       ]}>
       {isChecked && (

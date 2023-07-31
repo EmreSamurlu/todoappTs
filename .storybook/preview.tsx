@@ -7,7 +7,7 @@ import {View} from 'react-native';
 const deco = (Story: any) => {
   return (
     <View style={{paddingVertical: 24, alignItems: 'center'}}>
-      <NavigationContainer theme={themeStyles['light']}>
+      <NavigationContainer theme={themeStyles['dark']}>
         <Story />
       </NavigationContainer>
     </View>

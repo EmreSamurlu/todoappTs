@@ -4,33 +4,13 @@ import type {Meta, StoryObj} from '@storybook/react-native';
 const TaskItemMeta: Meta<TaskItemProps> = {
   title: 'TaskItem',
   component: TaskItem,
-  argTypes: {
-    onPress: {action: 'pressed the TaskItem'},
-  },
+  argTypes: {},
   args: {
-    label: 'TaskItem',
-    type: 'default',
+    taskLabel: 'Task Item',
+    taskCategory: 'Task Category',
   },
 };
 
 export default TaskItemMeta;
 
-export const Basic: StoryObj<TaskItemProps> = {
-  args: {
-    label: 'TaskItem',
-    type: 'default',
-  },
-};
-export const Outline: StoryObj<TaskItemProps> = {
-  args: {
-    label: 'TaskItem',
-    type: 'outline',
-    iconName: 'plus',
-  },
-};
-export const Icon: StoryObj<TaskItemProps> = {
-  args: {
-    type: 'icon',
-    iconName: 'plus',
-  },
-};
+export const Basic: StoryObj<TaskItemProps> = {};

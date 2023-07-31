@@ -9,6 +9,7 @@ declare module '@react-navigation/native' {
     colors: {
       primary: string;
       background: string;
+      secondBackground: string;
       card: string;
       border: string;
       text: string;
