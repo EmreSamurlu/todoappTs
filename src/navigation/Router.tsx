@@ -18,7 +18,6 @@ const Router: React.FC = () => {
   const scheme = useColorScheme();
   const {theme} = useSelector((state: RootState) => state.theme);
   const [selectedTheme, setSelectedTheme] = useState<string>();
-  console.log('THEME', theme);
 
   useEffect(() => {
     if (theme) {

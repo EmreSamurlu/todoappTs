@@ -9,6 +9,7 @@ import MaterialIcon from '../MaterialIcon/MaterialIcon';
 export interface ButtonProps {
   onPress: () => void;
   iconName: string;
+  iconColor: string;
   label: string;
   type: any;
   color: any;
@@ -18,13 +19,15 @@ const Button: React.FC<ButtonProps> = ({
   onPress,
   label,
   iconName,
-  color = 'blue',
+  iconColor,
+  color = 'red',
   type = 'default',
 }) => {
   const {colors} = useTheme();
 
   const styleType = getKeyValue(styles)(type);
   const selectedColor = getKeyValue(colors)(color);
+
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -37,11 +40,7 @@ const Button: React.FC<ButtonProps> = ({
       ]}
       activeOpacity={0.8}>
       <View style={styleType.text_box}>
-        <MaterialIcon
-          iconSize={24}
-          iconName={iconName}
-          iconColor={type !== 'icon' ? selectedColor : colors.buttonText}
-        />
+        <MaterialIcon iconSize={24} iconName={iconName} iconColor={iconColor} />
         {type !== 'icon' && (
           <Text
             text={label}

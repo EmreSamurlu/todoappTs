@@ -47,10 +47,12 @@ try {
 
 const getStories = () => {
   return {
+    "./src/components/Auth/LogoutCard/LogoutCard.stories.tsx": require("../src/components/Auth/LogoutCard/LogoutCard.stories.tsx"),
     "./src/components/General/Button/Button.stories.tsx": require("../src/components/General/Button/Button.stories.tsx"),
     "./src/components/General/Calendar/Calendar.stories.tsx": require("../src/components/General/Calendar/Calendar.stories.tsx"),
     "./src/components/General/FontIcon/FontIcon.stories.tsx": require("../src/components/General/FontIcon/FontIcon.stories.tsx"),
     "./src/components/General/MaterialIcon/MaterialIcon.stories.tsx": require("../src/components/General/MaterialIcon/MaterialIcon.stories.tsx"),
+    "./src/components/General/ProfilePic/ProfilePic.stories.tsx": require("../src/components/General/ProfilePic/ProfilePic.stories.tsx"),
     "./src/components/General/TaskBox/TaskBox.stories.tsx": require("../src/components/General/TaskBox/TaskBox.stories.tsx"),
     "./src/components/General/Text/Text.stories.tsx": require("../src/components/General/Text/Text.stories.tsx"),
     "./src/components/General/TextInput/TextInput.stories.tsx": require("../src/components/General/TextInput/TextInput.stories.tsx"),
