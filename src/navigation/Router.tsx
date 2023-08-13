@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {setTheme} from '../redux/features/theme';
 import {RootState} from '../redux/store';
 import Auth from './Auth/Auth';
+import Main from './Main/Main';
 import {navigationOptions, routeNames} from './route-names';
 import {themeStyles} from '../styles';
 
@@ -17,7 +18,9 @@ const Router: React.FC = () => {
   const dispatch = useDispatch();
   const scheme = useColorScheme();
   const {theme} = useSelector((state: RootState) => state.theme);
+  const {token} = useSelector((state: RootState) => state.auth);
   const [selectedTheme, setSelectedTheme] = useState<string>();
+  const [isSignedIn, setIsSignedIn] = useState<Boolean>(false);
 
   useEffect(() => {
     if (theme) {
@@ -29,19 +32,21 @@ const Router: React.FC = () => {
     }
   }, [dispatch, scheme, theme]);
 
-  // const [isSignedIn, setIsSignedIn] = useState<Boolean>();
-
-  // setIsSignedIn(true);
+  useEffect(() => {
+    if (token) {
+      setIsSignedIn(true);
+    }
+  }, [token]);
 
   return (
     <NavigationContainer
       theme={selectedTheme === 'dark' ? themeStyles.dark : themeStyles.light}>
       <Stack.Navigator screenOptions={navigationOptions}>
-        <Stack.Screen name={routeNames.AuthStack} component={Auth} />
-        {/* {isSignedIn ? (
-        ) : (
+        {isSignedIn ? (
           <Stack.Screen name="MainStack" component={Main} />
-        )} */}
+        ) : (
+          <Stack.Screen name={routeNames.AuthStack} component={Auth} />
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );
