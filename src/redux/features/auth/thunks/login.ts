@@ -1,5 +1,5 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
-import {ValuesProp} from 'src/screens/Auth/Login/LoginTypes';
+import {ValuesProp} from 'src/screens/Auth/AuthTypes';
 
 export const loginThunk = createAsyncThunk(
   'auth/loginThunk',

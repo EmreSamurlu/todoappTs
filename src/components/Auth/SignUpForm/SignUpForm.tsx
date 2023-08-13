@@ -4,23 +4,25 @@ import {useTheme} from '@react-navigation/native';
 import {Formik} from 'formik';
 
 import {TextInput, TextButton, Button} from '../../General';
-import styles from './LoginForm.styles';
+import styles from './SignUpForm.styles';
 import {useDispatch} from 'react-redux';
-import {loginThunk} from '../../../redux/features/auth/thunks';
-import {LoginFormProps} from 'src/screens/Auth/AuthTypes';
 
-const initialValues: LoginFormProps = {
+import {SignUpFormProps} from 'src/screens/Auth/AuthTypes';
+import {signupThunk} from '../../../redux/features/auth/thunks';
+
+const initialValues: SignUpFormProps = {
   email: 'test',
   password: '123456',
+  re_password: '123456',
 };
 
-const LoginForm = () => {
+const SignUpForm = () => {
   const dispatch = useDispatch<any>();
   const {colors} = useTheme();
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
-  const handleFormSubmit = (values: LoginFormProps) => {
+  const handleFormSubmit = (values: SignUpFormProps) => {
     if (values) {
-      dispatch(loginThunk(values));
+      dispatch(signupThunk(values));
     }
   };
   const handleNavigateSignup = () => {};
@@ -47,6 +49,14 @@ const LoginForm = () => {
               secureTextEntry={!isPasswordVisible}
               autoCap={'none'}
             />
+            <TextInput
+              onChangeText={handleChange('re_password')}
+              placeholder="Re Enter Password"
+              iconName={'lock'}
+              value={values.re_password}
+              secureTextEntry={!isPasswordVisible}
+              autoCap={'none'}
+            />
           </View>
           <TextButton
             label="Show Password"
@@ -56,13 +66,13 @@ const LoginForm = () => {
           <View style={styles.button_container}>
             <Button
               color={'blue'}
-              label="Login"
+              label="SignUp"
               type={'default'}
               onPress={handleSubmit}
             />
             <Button
               color={'blue'}
-              label="Go to SignUp Page"
+              label="Go to Login Page"
               onPress={handleNavigateSignup}
               type={'outline'}
             />
@@ -73,4 +83,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default SignUpForm;

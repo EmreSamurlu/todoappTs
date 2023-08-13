@@ -1,4 +1,5 @@
-import LoginForm, {type LoginFormProps} from './LoginForm';
+import {LoginFormProps} from 'src/screens/Auth/AuthTypes';
+import LoginForm from './LoginForm';
 import type {Meta, StoryObj} from '@storybook/react-native';
 
 const LoginFormMeta: Meta<LoginFormProps> = {
