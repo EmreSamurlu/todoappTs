@@ -1,5 +1,5 @@
 import {LandingPage, Login, SignUp} from '../../screens';
-import routeNames from '../route-names';
+import {routeNames} from '../route-names';
 
 export default [
   {

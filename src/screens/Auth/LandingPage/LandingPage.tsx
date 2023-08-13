@@ -1,28 +1,47 @@
 import React from 'react';
-import {View} from 'react-native';
-
-import {Page, Text, TextInput} from '../../../components';
+import {Alert, View} from 'react-native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useNavigation, useTheme} from '@react-navigation/native';
+import {Page, Text, Button, Visual} from '../../../components';
 import styles from './LandingPage.styles';
-import {Button} from '../../../components/General/';
+import {routeNames} from '../../../navigation/route-names';
 
-interface Props {
-  txt: string;
-}
+export type RootStackParamList = {
+  LandingPage: undefined;
+};
 
-const LandingPage: React.FC<Props> = () => {
-  const handleChange = txt => {
-    console.log(txt);
+const LandingPage = () => {
+  const {colors} = useTheme();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  const handleRedirect = (selectedNav: string) => {
+    if (selectedNav === 'login') {
+      navigation.navigate(routeNames.Login as never);
+    } else {
+      Alert.alert('Not implemented yet');
+    }
   };
   return (
-    <Page>
-      <View style={{justifyContent: 'center', alignItems: 'center'}}>
-        <Text text={'Welcome'} textStyle={styles.welcome} />
-        <TextInput
-          onChangeText={text => handleChange(text)}
-          placeholder="Label"
+    <Page pageStyle={styles.page_container}>
+      <Visual image={'logo_no_background'} imageStyle={styles.logo} />
+      <Text
+        text={'Welcome'}
+        textStyle={[styles.welcome, {color: colors.text}]}
+      />
+      <View style={styles.container}>
+        <Button
+          color={'blue'}
+          label="Login"
+          onPress={() => handleRedirect('login')}
           type={'default'}
         />
-        <Button color={'blue'} label="Selam" onPress={null} type={'default'} />
+        <Button
+          color={'blue'}
+          label="SignUp"
+          onPress={() => handleRedirect('signup')}
+          type={'default'}
+        />
       </View>
     </Page>
   );

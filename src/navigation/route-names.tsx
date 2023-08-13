@@ -1,4 +1,11 @@
-export default {
+export interface RouteName {
+  AuthStack: string;
+  LandingPage: string;
+  Login: string;
+  SignUp: string;
+  Home: string;
+}
+export const routeNames: RouteName = {
   AuthStack: 'AuthStack',
   LandingPage: 'LandingPage',
   Login: 'Login',

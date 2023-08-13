@@ -7,3 +7,4 @@ export {default as MaterialIcon} from './MaterialIcon';
 export {default as FontIcon} from './FontIcon';
 export {default as Calendar} from './Calendar';
 export {default as ProfilePic} from './ProfilePic';
+export {default as Visual} from './Visual';

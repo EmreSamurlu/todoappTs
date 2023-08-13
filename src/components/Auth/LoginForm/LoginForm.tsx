@@ -5,22 +5,23 @@ import {Formik} from 'formik';
 
 import {TextInput, TextButton, Button} from '../../General';
 import styles from './LoginForm.styles';
+import {useDispatch} from 'react-redux';
+import {loginThunk} from '../../../redux/features/auth/thunks/loginThunk';
+import {LoginFormProps, ValuesProp} from 'src/screens/Auth/Login/LoginTypes';
 
-export interface LoginFormProps {
-  email: string;
-  password: string;
-}
-
-const initialValues = {
-  email: '',
-  password: '',
+const initialValues: ValuesProp = {
+  email: 'test',
+  password: '123456',
 };
 
 const LoginForm: React.FC<LoginFormProps> = () => {
+  const dispatch = useDispatch<any>();
   const {colors} = useTheme();
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
-  const handleFormSubmit = (values: {email: string; password: string}) => {
-    console.log(values.email, values.password);
+  const handleFormSubmit = (values: ValuesProp) => {
+    if (values) {
+      dispatch(loginThunk(values));
+    }
   };
   const handleNavigateSignup = () => {};
   const handleShowbutton = () => {

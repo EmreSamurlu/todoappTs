@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {setTheme} from '../redux/features/theme';
 import {RootState} from '../redux/store';
 import Auth from './Auth/Auth';
-import routeNames, {navigationOptions} from './route-names';
+import {navigationOptions, routeNames} from './route-names';
 import {themeStyles} from '../styles';
 
 const Stack = createNativeStackNavigator();
