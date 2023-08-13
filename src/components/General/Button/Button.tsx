@@ -8,8 +8,8 @@ import {getKeyValue} from '../../../utils/utils';
 import MaterialIcon from '../MaterialIcon/MaterialIcon';
 export interface ButtonProps {
   onPress: () => void;
-  iconName: string;
-  iconColor: string;
+  iconName?: string;
+  iconColor?: string;
   label: string;
   type: any;
   color: any;

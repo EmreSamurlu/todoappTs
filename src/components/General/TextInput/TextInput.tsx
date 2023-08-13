@@ -4,14 +4,17 @@ import styles from './TextInput.styles';
 import {useTheme} from '@react-navigation/native';
 import {getKeyValue} from '../../../utils/utils';
 import Text from '../Text/Text';
-import MaterialIcon from '../MaterialIcon/MaterialIcon';
+import {FontIcon} from '../../General';
 
 export interface TextInputProps {
   onChangeText: (text: string) => void;
+  value: string;
   placeholder: string;
-  type: any;
+  type?: any;
   label?: string;
   iconName?: string;
+  secureTextEntry?: boolean;
+  autoCap?: string | any;
 }
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -20,6 +23,9 @@ const TextInput: React.FC<TextInputProps> = ({
   type = 'default',
   label,
   iconName,
+  value,
+  secureTextEntry = false,
+  autoCap = 'none',
 }) => {
   const {colors} = useTheme();
   const [isFocused, setIsFocused] = useState<boolean>(false);
@@ -43,20 +49,19 @@ const TextInput: React.FC<TextInputProps> = ({
           />
         )}
         <Input
-          style={[styleType.input]}
+          style={[styleType.input, {color: colors.text}]}
           onEndEditing={() => setIsFocused(false)}
           onFocus={() => setIsFocused(true)}
           onChangeText={onChangeText}
           placeholder={placeholder}
+          value={value}
+          secureTextEntry={secureTextEntry}
+          autoCapitalize={autoCap}
         />
       </View>
       {iconName && (
         <View style={[styleType.icon]}>
-          <MaterialIcon
-            iconName={iconName}
-            iconColor={colors.blue}
-            iconSize={24}
-          />
+          <FontIcon iconName={iconName} iconColor={colors.blue} iconSize={24} />
         </View>
       )}
     </View>
