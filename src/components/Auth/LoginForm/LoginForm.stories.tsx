@@ -5,7 +5,8 @@ const LoginFormMeta: Meta<LoginFormProps> = {
   title: 'LoginForm',
   component: LoginForm,
   args: {
-    userName: 'Test User',
+    email: 'example@test.com',
+    password: '123456',
   },
 };
 

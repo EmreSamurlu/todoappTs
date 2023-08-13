@@ -4,7 +4,7 @@ import styles from './TextInput.styles';
 import {useTheme} from '@react-navigation/native';
 import {getKeyValue} from '../../../utils/utils';
 import Text from '../Text/Text';
-import {FontIcon} from '../../General';
+import FontIcon from '../FontIcon';
 
 export interface TextInputProps {
   onChangeText: (text: string) => void;
