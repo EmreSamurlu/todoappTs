@@ -1,14 +1,15 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 
-import {Theme} from './features/theme/initialState';
-
-import {themeReducer} from './features';
+import {themeReducer, authReducer} from './features';
+import {ThemeProps, AuthProps} from './types/reduxTypes';
 
 export type RootState = {
-  theme: Theme;
+  theme: ThemeProps;
+  auth: AuthProps;
 };
 const rootReducer = combineReducers<RootState>({
   theme: themeReducer,
+  auth: authReducer,
 });
 
 const store = configureStore({

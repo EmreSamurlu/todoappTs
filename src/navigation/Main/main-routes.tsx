@@ -1,5 +1,5 @@
 import {Home} from '../../screens';
-import routeNames from '../route-names';
+import {routeNames} from '../route-names';
 export default [
   {
     name: routeNames.Home,
@@ -7,3 +7,7 @@ export default [
     options: {},
   },
 ];
+
+export const mainOptions = {
+  headerShown: false,
+};

@@ -1,11 +1,7 @@
-export interface Theme {
-  theme: string;
-  themeError: object | null;
-  themeLoading: boolean;
-}
+import {ThemeProps} from '@redux/types/reduxTypes';
 
-export const initialState: Theme = {
-  theme: '',
+export const initialState: ThemeProps = {
+  theme: 'light',
   themeError: null,
   themeLoading: false,
 };

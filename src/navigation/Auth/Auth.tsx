@@ -4,7 +4,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import authRoutes, {authOptions} from './auth-routes';
 
-const Stack = createNativeStackNavigator();
+interface RootStackParams {
+  [key: string]: undefined;
+}
+
+const Stack = createNativeStackNavigator<RootStackParams>();
 const Auth = () => {
   return (
     <Stack.Navigator screenOptions={authOptions}>
