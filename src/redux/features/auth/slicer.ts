@@ -6,7 +6,11 @@ import {loginThunk, signupThunk} from './thunks';
 export default createSlice({
   name: 'theme',
   initialState,
-  reducers: {},
+  reducers: {
+    clearCreateUserState: state => {
+      state.createUser = '';
+    },
+  },
   extraReducers: builder => {
     builder.addCase(loginThunk.pending, state => {
       state.tokenLoading = true;
@@ -20,15 +24,16 @@ export default createSlice({
       state.tokenLoading = false;
     });
     builder.addCase(signupThunk.pending, state => {
-      state.tokenLoading = true;
+      state.createUserLoading = true;
     });
     builder.addCase(signupThunk.fulfilled, (state, action) => {
-      state.token = typeof action.payload === 'string' ? action.payload : '';
-      state.tokenLoading = false;
+      state.createUser =
+        typeof action.payload === 'string' ? action.payload : '';
+      state.createUserLoading = false;
     });
     builder.addCase(signupThunk.rejected, (state, action) => {
-      state.tokenError = action;
-      state.tokenLoading = false;
+      state.createUserError = action;
+      state.createUserLoading = false;
     });
   },
 });

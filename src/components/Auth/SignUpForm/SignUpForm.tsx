@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import {useTheme} from '@react-navigation/native';
+import {useNavigation, useTheme} from '@react-navigation/native';
 import {Formik} from 'formik';
 
 import {TextInput, TextButton, Button} from '../../General';
@@ -9,6 +9,7 @@ import {useDispatch} from 'react-redux';
 
 import {SignUpFormProps} from 'src/screens/Auth/AuthTypes';
 import {signupThunk} from '../../../redux/features/auth/thunks';
+import {routeNames} from '../../../navigation/route-names';
 
 const initialValues: SignUpFormProps = {
   email: 'test',
@@ -18,6 +19,7 @@ const initialValues: SignUpFormProps = {
 
 const SignUpForm = () => {
   const dispatch = useDispatch<any>();
+  const navigation = useNavigation();
   const {colors} = useTheme();
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const handleFormSubmit = (values: SignUpFormProps) => {
@@ -25,7 +27,9 @@ const SignUpForm = () => {
       dispatch(signupThunk(values));
     }
   };
-  const handleNavigateSignup = () => {};
+  const handleNavigateLogin = () => {
+    navigation.navigate(routeNames.Login as never);
+  };
   const handleShowbutton = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
@@ -73,7 +77,7 @@ const SignUpForm = () => {
             <Button
               color={'blue'}
               label="Go to Login Page"
-              onPress={handleNavigateSignup}
+              onPress={handleNavigateLogin}
               type={'outline'}
             />
           </View>

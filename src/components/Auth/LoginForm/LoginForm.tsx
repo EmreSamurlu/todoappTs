@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import {useTheme} from '@react-navigation/native';
+import {useNavigation, useTheme} from '@react-navigation/native';
 import {Formik} from 'formik';
 
 import {TextInput, TextButton, Button} from '../../General';
@@ -8,6 +8,7 @@ import styles from './LoginForm.styles';
 import {useDispatch} from 'react-redux';
 import {loginThunk} from '../../../redux/features/auth/thunks';
 import {LoginFormProps} from 'src/screens/Auth/AuthTypes';
+import {routeNames} from '../../../navigation/route-names';
 
 const initialValues: LoginFormProps = {
   email: 'test',
@@ -16,6 +17,7 @@ const initialValues: LoginFormProps = {
 
 const LoginForm = () => {
   const dispatch = useDispatch<any>();
+  const navigation = useNavigation();
   const {colors} = useTheme();
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const handleFormSubmit = (values: LoginFormProps) => {
@@ -23,7 +25,9 @@ const LoginForm = () => {
       dispatch(loginThunk(values));
     }
   };
-  const handleNavigateSignup = () => {};
+  const handleNavigateSignup = () => {
+    navigation.navigate(routeNames.SignUp as never);
+  };
   const handleShowbutton = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
