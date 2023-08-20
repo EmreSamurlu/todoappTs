@@ -1,25 +1,38 @@
-import React from 'react';
-
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import mainRoutes, {mainOptions} from './main-routes';
+import React, {FC} from 'react';
+import {useTheme} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {mainRoutes} from './main-routes';
 
 interface RootStackParams {
   [key: string]: undefined;
 }
 
-const Stack = createNativeStackNavigator<RootStackParams>();
-const Main = () => {
+const Tab = createBottomTabNavigator<RootStackParams>();
+
+const Main: FC = () => {
+  const {colors} = useTheme();
   return (
-    <Stack.Navigator screenOptions={mainOptions}>
-      {mainRoutes.map(route => (
-        <Stack.Screen
-          key={route.name}
-          name={route.name}
-          component={route.component}
-          options={route.options}
-        />
-      ))}
-    </Stack.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: colors.blue,
+        tabBarInactiveTintColor: colors.passive,
+        tabBarStyle: {
+          borderTopColor: 'transparent',
+          paddingTop: 8,
+        },
+      }}>
+      {mainRoutes.map(route => {
+        return (
+          <Tab.Screen
+            key={route.name}
+            name={route.name}
+            component={route.component}
+            options={route.options}
+          />
+        );
+      })}
+    </Tab.Navigator>
   );
 };
 
