@@ -43,7 +43,7 @@ const Router: React.FC = () => {
       theme={selectedTheme === 'dark' ? themeStyles.dark : themeStyles.light}>
       <Stack.Navigator screenOptions={navigationOptions}>
         {isSignedIn ? (
-          <Stack.Screen name="MainStack" component={Main} />
+          <Stack.Screen name={routeNames.MainStack} component={Main} />
         ) : (
           <Stack.Screen name={routeNames.AuthStack} component={Auth} />
         )}
