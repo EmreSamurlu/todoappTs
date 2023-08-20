@@ -13,5 +13,6 @@ export const darkTheme = {
     blue: '#1294F2',
     red: '#EF4A3C',
     check: '#DADADA',
+    passive: '#575767',
   },
 };
