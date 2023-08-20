@@ -1,4 +1,4 @@
 import authSlicer from './slicer';
 
 export default authSlicer.reducer;
-export const {clearCreateUserState} = authSlicer.actions;
+export const {clearCreateUserState, clearToken} = authSlicer.actions;

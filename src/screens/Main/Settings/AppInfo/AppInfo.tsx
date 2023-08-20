@@ -9,7 +9,7 @@ import {appInfo} from './info';
 const AppInfo = () => {
   const {colors} = useTheme();
   return (
-    <Page pageStyle={styles.page_container}>
+    <Page pageStyle={styles.page_container} goBack>
       {appInfo.map(value => {
         return (
           <View style={styles.field_container} key={value.label}>

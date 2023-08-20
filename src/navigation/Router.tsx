@@ -32,10 +32,13 @@ const Router: React.FC = () => {
     }
   }, [dispatch, scheme, theme]);
 
+  console.log('WOKEN', token);
+
   useEffect(() => {
     if (token) {
-      setIsSignedIn(true);
+      return setIsSignedIn(true);
     }
+    setIsSignedIn(false);
   }, [token]);
 
   return (

@@ -8,4 +8,8 @@ export const initialState: AuthProps = {
   createUser: '',
   createUserError: null,
   createUserLoading: false,
+
+  logout: '',
+  logoutError: null,
+  logoutLoading: false,
 };
