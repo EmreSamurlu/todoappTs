@@ -1,10 +1,10 @@
 import React from 'react';
 import {FontIcon, Text} from '../../components';
-import {Settings} from '../../screens';
 import {routeNames} from '../route-names';
 import {Props} from './types';
 import styles from './Main.styles';
 import TaskMain from '../TaskMain/TaskMain';
+import Setting from '../Setting/Setting';
 
 export const mainRoutes: Props[] = [
   {
@@ -27,8 +27,8 @@ export const mainRoutes: Props[] = [
     },
   },
   {
-    name: routeNames.Settings,
-    component: Settings,
+    name: routeNames.Setting,
+    component: Setting,
     options: {
       tabBarLabel: ({focused, color}) => (
         <>
