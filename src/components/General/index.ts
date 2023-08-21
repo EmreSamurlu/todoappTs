@@ -1,6 +1,7 @@
 export {default as Button} from './Button';
 export {default as Page} from './Page';
 export {default as Text} from './Text';
+export {default as TextBox} from './TextBox';
 export {default as TextButton} from './TextButton';
 export {default as TextInput} from './TextInput';
 export {default as MaterialIcon} from './MaterialIcon';
