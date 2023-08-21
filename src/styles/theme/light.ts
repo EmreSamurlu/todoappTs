@@ -13,5 +13,6 @@ export const lightTheme = {
     blue: '#1294F2',
     red: '#EF4A3C',
     check: '#575767',
+    passive: '#575767',
   },
 };

@@ -1,9 +1,9 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
-import {ValuesProp} from 'src/screens/Auth/AuthTypes';
+import {LoginFormProps} from '../../../../screens/Auth/AuthTypes';
 
 export const loginThunk = createAsyncThunk(
   'auth/loginThunk',
-  async (values: ValuesProp) => {
+  async (values: LoginFormProps) => {
     const {email, password} = values;
 
     if (email === 'test' && password === '123456') {

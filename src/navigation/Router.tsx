@@ -32,10 +32,13 @@ const Router: React.FC = () => {
     }
   }, [dispatch, scheme, theme]);
 
+  console.log('WOKEN', token);
+
   useEffect(() => {
     if (token) {
-      setIsSignedIn(true);
+      return setIsSignedIn(true);
     }
+    setIsSignedIn(false);
   }, [token]);
 
   return (
@@ -43,7 +46,7 @@ const Router: React.FC = () => {
       theme={selectedTheme === 'dark' ? themeStyles.dark : themeStyles.light}>
       <Stack.Navigator screenOptions={navigationOptions}>
         {isSignedIn ? (
-          <Stack.Screen name="MainStack" component={Main} />
+          <Stack.Screen name={routeNames.MainStack} component={Main} />
         ) : (
           <Stack.Screen name={routeNames.AuthStack} component={Auth} />
         )}
