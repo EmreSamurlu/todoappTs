@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import {View} from 'react-native';
 import {useNavigation, useTheme} from '@react-navigation/native';
 import {Formik} from 'formik';
+import {useDispatch} from 'react-redux';
 
 import {TextInput, TextButton, Button} from '../../General';
 import styles from './LoginForm.styles';
-import {useDispatch} from 'react-redux';
 import {loginThunk} from '../../../redux/features/auth/thunks';
-import {LoginFormProps} from 'src/screens/Auth/AuthTypes';
+import {LoginFormProps} from '../../../screens/Auth/AuthTypes';
 import {routeNames} from '../../../navigation/route-names';
 
 const initialValues: LoginFormProps = {

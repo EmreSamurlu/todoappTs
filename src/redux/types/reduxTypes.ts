@@ -12,4 +12,8 @@ export interface AuthProps {
   createUser: string;
   createUserError: object | null;
   createUserLoading: boolean;
+
+  logout: string;
+  logoutError: object | null;
+  logoutLoading: boolean;
 }

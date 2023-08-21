@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 import {initialState} from './initialState';
-import {loginThunk, signupThunk} from './thunks';
+import {loginThunk, logoutThunk, signupThunk} from './thunks';
 
 export default createSlice({
   name: 'theme',
@@ -9,6 +9,9 @@ export default createSlice({
   reducers: {
     clearCreateUserState: state => {
       state.createUser = '';
+    },
+    clearToken: state => {
+      state.token = '';
     },
   },
   extraReducers: builder => {
@@ -34,6 +37,16 @@ export default createSlice({
     builder.addCase(signupThunk.rejected, (state, action) => {
       state.createUserError = action;
       state.createUserLoading = false;
+    });
+    builder.addCase(logoutThunk.pending, state => {
+      state.logoutLoading = true;
+    });
+    builder.addCase(logoutThunk.fulfilled, (state, action) => {
+      state.logout = action.payload;
+    });
+    builder.addCase(logoutThunk.rejected, (state, action) => {
+      state.logoutError = action;
+      state.logoutLoading = false;
     });
   },
 });
