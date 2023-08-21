@@ -9,6 +9,7 @@ import {
   faListCheck,
   faGear,
   faChevronLeft,
+  faChevronDown,
   faArrowRightToBracket,
 } from '@fortawesome/free-solid-svg-icons';
 export interface IconProps {
@@ -18,11 +19,12 @@ export interface IconProps {
 }
 library.add(
   faCheck,
-  faArrowRightToBracket,
   faLock,
   faListCheck,
   faGear,
   faChevronLeft,
+  faChevronDown,
+  faArrowRightToBracket,
 );
 
 const FontIcon: FC<IconProps> = ({iconName, iconSize, iconColor}) => {
