@@ -5,6 +5,7 @@ export default StyleSheet.create({
   page_container: {
     height: '100%',
     paddingHorizontal: spacing.lg,
+    marginBottom: spacing.xl,
   },
   field_container: {
     flexDirection: 'row',

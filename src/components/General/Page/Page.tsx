@@ -1,23 +1,32 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Pressable, SafeAreaView, StatusBar, View} from 'react-native';
 
 import {useNavigation, useTheme} from '@react-navigation/native';
 import FontIcon from '../FontIcon/FontIcon';
 import styles from './Page.styles';
+import Text from '../Text/Text';
 
 interface Props {
   children: React.ReactNode;
   pageStyle: object;
   goBack: boolean;
+  pageTitle: string;
 }
 
-const Page: React.FC<Props> = ({children, pageStyle, goBack}) => {
+const Page: React.FC<Props> = ({children, pageStyle, goBack, pageTitle}) => {
   const {colors} = useTheme();
   const navigation = useNavigation();
+  const [pageName, setPageName] = useState<string>(pageTitle);
+
+  useEffect(() => {
+    if (pageTitle) {
+      setPageName(pageTitle);
+    }
+  }, [pageTitle]);
+
   return (
     <SafeAreaView>
       <StatusBar hidden />
-
       <View style={pageStyle}>
         {goBack && (
           <Pressable
@@ -30,6 +39,13 @@ const Page: React.FC<Props> = ({children, pageStyle, goBack}) => {
             />
           </Pressable>
         )}
+        {pageTitle && (
+          <Text
+            text={pageName}
+            textStyle={[styles.page_title, {color: colors.blue}]}
+          />
+        )}
+
         {children}
       </View>
     </SafeAreaView>
