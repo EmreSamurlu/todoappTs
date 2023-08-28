@@ -1,12 +1,18 @@
 import {StyleSheet} from 'react-native';
 
-export default StyleSheet.create({
-  container: {
-    borderWidth: 1,
-  },
-  inner_container: {
-    borderWidth: 1,
-    borderColor: 'white',
-    flex: 1,
-  },
-});
+export const styles = {
+  bottom: StyleSheet.create({
+    container: {
+      justifyContent: 'flex-end',
+      margin: 0,
+      height: '50%',
+    },
+  }),
+  center: StyleSheet.create({
+    container: {
+      justifyContent: 'center',
+      margin: 0,
+      height: '50%',
+    },
+  }),
+};
