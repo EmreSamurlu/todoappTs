@@ -10,7 +10,7 @@ export default createSlice({
   reducers: {
     setTheme: (state, action: PayloadAction<string>) => {
       state.theme = action.payload;
-      AsyncStorage.setItem(storageConstants.theme, action.payload);
+      AsyncStorage.setItem(storageConstants.theme, action.payload.toString());
     },
   },
 });

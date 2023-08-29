@@ -9,3 +9,5 @@ export {default as FontIcon} from './FontIcon';
 export {default as Calendar} from './Calendar';
 export {default as ProfilePic} from './ProfilePic';
 export {default as Visual} from './Visual';
+export {default as SwitchButton} from './SwitchButton';
+export {default as Modal} from './Modal';

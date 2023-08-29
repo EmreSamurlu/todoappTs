@@ -14,5 +14,7 @@ export const darkTheme = {
     red: '#EF4A3C',
     check: '#DADADA',
     passive: '#575767',
+    switchTrue: '#1294F2',
+    switchFalse: '#575767',
   },
 };
