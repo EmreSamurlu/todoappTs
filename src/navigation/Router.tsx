@@ -10,7 +10,7 @@ import {RootState} from '../redux/store';
 import Auth from './Auth/Auth';
 import Main from './Main/Main';
 import {navigationOptions, routeNames} from './route-names';
-import {themeStyles} from '../styles';
+import {themeStyles} from '@styles';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,14 +25,11 @@ const Router: React.FC = () => {
   useEffect(() => {
     if (theme) {
       setSelectedTheme(theme);
-    }
-    if (scheme) {
-      setSelectedTheme(scheme);
-      dispatch(setTheme(scheme));
+    } else {
+      scheme && setSelectedTheme(scheme?.toString());
+      scheme && dispatch(setTheme(scheme?.toString()));
     }
   }, [dispatch, scheme, theme]);
-
-  console.log('WOKEN', token);
 
   useEffect(() => {
     if (token) {
