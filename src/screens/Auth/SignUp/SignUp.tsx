@@ -1,11 +1,13 @@
 import React from 'react';
 import {Alert, KeyboardAvoidingView, Platform} from 'react-native';
 
-import {Page, Visual, SignUpForm} from '../../../components';
-import styles from './SignUp.styles';
 import {useDispatch, useSelector} from 'react-redux';
+
+import {Page, SignUpForm, Visual} from '@components';
+import {clearCreateUserState} from '@features';
 import {RootState} from '@redux/store';
-import {clearCreateUserState} from '../../../redux/features/auth';
+
+import styles from './SignUp.styles';
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -23,7 +25,7 @@ const SignUp = () => {
     ]);
   }
   return (
-    <Page pageStyle={styles.page_container}>
+    <Page pageStyle={styles.page_container} goBack={false} pageTitle="">
       <KeyboardAvoidingView
         style={styles.page_container}
         keyboardVerticalOffset={-100}

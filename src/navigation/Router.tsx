@@ -5,12 +5,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {setTheme} from '../redux/features/theme';
+import {setTheme} from '@features';
+import {themeStyles} from '@styles';
+
 import {RootState} from '../redux/store';
 import Auth from './Auth/Auth';
 import Main from './Main/Main';
 import {navigationOptions, routeNames} from './route-names';
-import {themeStyles} from '@styles';
 
 const Stack = createNativeStackNavigator();
 

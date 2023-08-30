@@ -3,7 +3,7 @@ import {createSlice} from '@reduxjs/toolkit';
 import {initialState} from './initialState';
 import {loginThunk, logoutThunk, signupThunk} from './thunks';
 
-export default createSlice({
+export const authSlicer = createSlice({
   name: 'theme',
   initialState,
   reducers: {
@@ -50,3 +50,6 @@ export default createSlice({
     });
   },
 });
+
+export const {clearCreateUserState, clearToken} = authSlicer.actions;
+export default authSlicer.reducer;

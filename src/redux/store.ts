@@ -1,15 +1,27 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 
-import {themeReducer, authReducer} from './features';
-import {ThemeProps, AuthProps} from './types/reduxTypes';
+import authReducer from './features/auth/slicer';
+import calendarReducer from './features/calendar/slicer';
+import taskListReducer from './features/task/slicer';
+import themeReducer from './features/theme/slicer';
+import {
+  AuthProps,
+  CalendarProps,
+  TaskListProps,
+  ThemeProps,
+} from './types/reduxTypes';
 
 export type RootState = {
   theme: ThemeProps;
   auth: AuthProps;
+  calendar: CalendarProps;
+  tasks: TaskListProps;
 };
 const rootReducer = combineReducers<RootState>({
-  theme: themeReducer,
   auth: authReducer,
+  calendar: calendarReducer,
+  theme: themeReducer,
+  tasks: taskListReducer,
 });
 
 const store = configureStore({

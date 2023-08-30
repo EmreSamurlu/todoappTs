@@ -8,7 +8,10 @@
       "@components": ["src/components"],
       "@utils": ["src/utils/*"],
       "@constants": ["src/constants"],
-      "@styles": ["src/styles"]
+      "@styles": ["src/styles"],
+      "@features": ["src/redux/features"],
+      "@redux/*": ["src/redux/*"],
+      "@routes": ["src/navigation/route-names"]
     }
   }
 }

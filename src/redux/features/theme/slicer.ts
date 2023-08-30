@@ -4,7 +4,7 @@ import {PayloadAction, createSlice} from '@reduxjs/toolkit';
 import storageConstants from '../../../constants/storage-constants';
 import {initialState} from './initialState';
 
-export default createSlice({
+export const themeSlice = createSlice({
   name: 'theme',
   initialState,
   reducers: {
@@ -14,3 +14,6 @@ export default createSlice({
     },
   },
 });
+
+export const {setTheme} = themeSlice.actions;
+export default themeSlice.reducer;

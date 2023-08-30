@@ -4,4 +4,5 @@ export const images: any = {
   logo_blue: require('./logo-blue.png'),
   logo_color: require('./logo-color.png'),
   logo_white: require('./logo-white.png'),
+  avatar: require('./avatar.png'),
 };
