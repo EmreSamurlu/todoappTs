@@ -1,13 +1,15 @@
 import React from 'react';
 import {View} from 'react-native';
 
-import {Button, Page} from '../../../components';
-import styles from './Settings.styles';
+import {clearToken} from '@features';
 import {useNavigation} from '@react-navigation/native';
-import {routeNames} from '../../../navigation/route-names';
 import {useDispatch} from 'react-redux';
+
+import {Button, Page} from '@components';
+
+import {routeNames} from '../../../navigation/route-names';
 import {logoutThunk} from '../../../redux/features/auth/thunks';
-import {clearToken} from '../../../redux/features/auth';
+import styles from './Settings.styles';
 
 const Settings = () => {
   const dispatch = useDispatch();
@@ -21,7 +23,7 @@ const Settings = () => {
     dispatch(clearToken());
   };
   return (
-    <Page pageStyle={styles.page_container} goBack={false}>
+    <Page pageStyle={styles.page_container} goBack={false} pageTitle="">
       <View style={styles.button_top_container}>
         <Button
           color={'blue'}

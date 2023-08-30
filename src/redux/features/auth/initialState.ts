@@ -1,4 +1,4 @@
-import {AuthProps} from '@redux/types/reduxTypes';
+import {AuthProps} from '../../types/reduxTypes';
 
 export const initialState: AuthProps = {
   token: '',

@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import {View} from 'react-native';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useTheme} from '@react-navigation/native';
+import {useDispatch} from 'react-redux';
+
 import {Page, SwitchButton, Text} from '@components';
+import {storageConstants} from '@constants';
+import {setTheme} from '@features';
+
 import {routeNames} from '../../../../navigation/route-names';
 import {styles} from './UserPrefs.styles';
-import {useDispatch} from 'react-redux';
-import {setTheme} from '../../../../redux/features/theme';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {storageConstants} from '@constants';
 
 const UserPrefs = () => {
   const dispatch = useDispatch();

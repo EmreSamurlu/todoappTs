@@ -1,4 +1,4 @@
-import {ThemeProps} from '@redux/types/reduxTypes';
+import {ThemeProps} from '../../types/reduxTypes';
 
 export const initialState: ThemeProps = {
   theme: 'light',
