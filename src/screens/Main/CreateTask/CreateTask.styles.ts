@@ -8,4 +8,5 @@ export const styles = StyleSheet.create({
     minHeight: '50%',
     justifyContent: 'space-between',
   },
+  calendar_container: {},
 });

@@ -10,6 +10,7 @@ import {
   faGear,
   faListCheck,
   faLock,
+  faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 
@@ -19,14 +20,15 @@ export interface IconProps {
   iconColor: string;
 }
 library.add(
-  faCheck,
-  faLock,
-  faListCheck,
-  faGear,
-  faChevronLeft,
-  faChevronDown,
   faArrowRightToBracket,
   faCalendarDay,
+  faCheck,
+  faChevronDown,
+  faChevronLeft,
+  faGear,
+  faListCheck,
+  faLock,
+  faPlus,
 );
 
 const FontIcon: FC<IconProps> = ({iconName, iconSize, iconColor}) => {

@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+
 import {spacing} from '../../../styles';
 
 export default StyleSheet.create({
@@ -15,5 +16,9 @@ export default StyleSheet.create({
   logout_button_container: {
     flex: 0.8,
     justifyContent: 'flex-end',
+  },
+  logout_card: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

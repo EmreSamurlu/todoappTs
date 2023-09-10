@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
+
 import {useNavigation, useTheme} from '@react-navigation/native';
 import {Formik} from 'formik';
-
-import {TextInput, TextButton, Button} from '../../General';
-import styles from './SignUpForm.styles';
 import {useDispatch} from 'react-redux';
-
 import {SignUpFormProps} from 'src/screens/Auth/AuthTypes';
-import {signupThunk} from '../../../redux/features/auth/thunks';
+
 import {routeNames} from '../../../navigation/route-names';
+import {signupThunk} from '../../../redux/features/auth/thunks';
+import {Button, TextButton, TextInput} from '../../General';
+import styles from './SignUpForm.styles';
 
 const initialValues: SignUpFormProps = {
   email: 'test',

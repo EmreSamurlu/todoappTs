@@ -33,6 +33,9 @@ const TextInput: React.FC<TextInputProps> = ({
   const [isFocused, setIsFocused] = useState<boolean>(false);
 
   const styleType = getKeyValue(styles)(type);
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
 
   return (
     <View
@@ -53,7 +56,7 @@ const TextInput: React.FC<TextInputProps> = ({
         <Input
           style={[styleType.input, {color: colors.text}]}
           onEndEditing={() => setIsFocused(false)}
-          onFocus={() => setIsFocused(true)}
+          onFocus={() => handleFocus()}
           onChangeText={onChangeText}
           placeholder={placeholder}
           placeholderTextColor={colors.secondaryText}

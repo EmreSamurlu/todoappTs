@@ -1,3 +1,5 @@
+import {useDispatch} from 'react-redux';
+
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 
 import authReducer from './features/auth/slicer';
@@ -28,5 +30,6 @@ const store = configureStore({
   reducer: rootReducer,
   middleware: getDefaultMiddleware => getDefaultMiddleware(),
 });
-
+export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch: () => AppDispatch = useDispatch;
 export default store;

@@ -1,19 +1,18 @@
 import React from 'react';
 import {View} from 'react-native';
+
 import {useTheme} from '@react-navigation/native';
-import styles from './LogoutCard.styles';
+
 import {Button, ProfilePic, Text} from '../../General';
+import styles from './LogoutCard.styles';
 
 export interface LogoutCardProps {
   userName: string;
+  handleLogout: () => void;
 }
 
-const LogoutCard: React.FC<LogoutCardProps> = ({userName}) => {
+const LogoutCard: React.FC<LogoutCardProps> = ({userName, handleLogout}) => {
   const {colors} = useTheme();
-
-  const handleLogout = () => {
-    console.log('logout');
-  };
 
   return (
     <View
@@ -37,7 +36,7 @@ const LogoutCard: React.FC<LogoutCardProps> = ({userName}) => {
       <Button
         type={'default'}
         color={'red'}
-        iconName="logout"
+        iconName="arrow-right-to-bracket"
         iconColor={colors.buttonText}
         label="Yes I want to go out"
         onPress={handleLogout}

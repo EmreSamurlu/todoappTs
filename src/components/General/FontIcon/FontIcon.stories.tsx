@@ -1,5 +1,6 @@
-import FontIcon, {type IconProps} from './FontIcon';
 import type {Meta, StoryObj} from '@storybook/react-native';
+
+import FontIcon, {type IconProps} from './FontIcon';
 
 const FontIconMeta: Meta<IconProps> = {
   args: {

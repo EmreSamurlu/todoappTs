@@ -2,9 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {Pressable, SafeAreaView, StatusBar, View} from 'react-native';
 
 import {useNavigation, useTheme} from '@react-navigation/native';
+
 import FontIcon from '../FontIcon/FontIcon';
-import styles from './Page.styles';
 import Text from '../Text/Text';
+import styles from './Page.styles';
 
 interface Props {
   children: React.ReactNode;

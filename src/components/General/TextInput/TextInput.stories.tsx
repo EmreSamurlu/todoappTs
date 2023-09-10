@@ -1,5 +1,6 @@
-import TextInput, {type TextInputProps} from './TextInput';
 import type {Meta, StoryObj} from '@storybook/react-native';
+
+import TextInput, {type TextInputProps} from './TextInput';
 
 const TextInputMeta: Meta<TextInputProps> = {
   argTypes: {

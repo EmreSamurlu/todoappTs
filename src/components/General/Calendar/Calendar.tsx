@@ -1,12 +1,11 @@
 import React, {FC, useEffect, useState} from 'react';
+
 import {useTheme} from '@react-navigation/native';
+import {CalendarProps, Calendar as CalendarView} from 'react-native-calendars';
 
-import {Calendar as CalendarView, CalendarProps} from 'react-native-calendars';
 import {calendarMock} from '../../../../mockData/calendar';
+import styles from './Calendar.styles';
 
-type date = {
-  dateString: string;
-};
 type markedDates = {
   [key: string]: {
     marked: boolean;
@@ -14,17 +13,12 @@ type markedDates = {
   };
 };
 export interface ICalendarProps extends CalendarProps {
-  onDayPress: () => void;
+  onDayPress: (date: any) => void;
 }
 
-const Calendar: FC<ICalendarProps> = () => {
+const Calendar: FC<ICalendarProps> = ({onDayPress}) => {
   const {colors} = useTheme();
-  const [selectedDate, setSelectedDate] = useState('');
   const [markedDates, setMarkedDates] = useState<markedDates>();
-
-  const onDayPress = (date: date) => {
-    setSelectedDate(date.dateString);
-  };
 
   useEffect(() => {
     const obj: any = {};
@@ -46,6 +40,7 @@ const Calendar: FC<ICalendarProps> = () => {
       onDayPress={onDayPress}
       markedDates={markedDates}
       markingType="multi-period"
+      style={styles.calendar}
       theme={{
         selectedDayBackgroundColor: colors.blue,
         backgroundColor: colors.background,
