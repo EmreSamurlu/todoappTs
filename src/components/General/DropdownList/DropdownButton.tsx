@@ -1,10 +1,11 @@
 import React, {FC} from 'react';
 import {Pressable} from 'react-native';
+
 import {useTheme} from '@react-navigation/native';
 
-import styles from './DropdownButton.styles';
-import Text from '../Text';
 import FontIcon from '../FontIcon';
+import Text from '../Text';
+import styles from './DropdownButton.styles';
 
 export interface DropdownButtonProps {
   selectedValue: string;

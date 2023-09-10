@@ -1,5 +1,7 @@
 import React from 'react';
 
+import FlashMessage from 'react-native-flash-message';
+
 import Initial from './container/Initial';
 // import {API_KEY} from '@env';
 import Router from './navigation/Router';
@@ -12,6 +14,7 @@ const App: React.FC = () => {
     <ReduxProvider>
       <Initial>
         <Router />
+        <FlashMessage position="top" />
       </Initial>
     </ReduxProvider>
   );

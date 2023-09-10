@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View} from 'react-native';
 
-import {clearToken} from '@features';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch} from 'react-redux';
 
-import {Button, Page} from '@components';
+import {Button, LogoutCard, Modal, Page} from '@components';
+import {clearToken} from '@features';
+import {getDimensions} from '@utils';
 
 import {routeNames} from '../../../navigation/route-names';
 import {logoutThunk} from '../../../redux/features/auth/thunks';
@@ -14,6 +15,7 @@ import styles from './Settings.styles';
 const Settings = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
+  const [isLogoutVisible, setIsLogoutVisible] = useState<boolean>(false);
 
   const handleNavigationPress = (selectedNav: string) => {
     navigation.navigate(selectedNav as never);
@@ -21,6 +23,9 @@ const Settings = () => {
   const handleLogout = () => {
     dispatch(logoutThunk() as any);
     dispatch(clearToken());
+  };
+  const handleBackdropPress = () => {
+    setIsLogoutVisible(false);
   };
   return (
     <Page pageStyle={styles.page_container} goBack={false} pageTitle="">
@@ -48,10 +53,21 @@ const Settings = () => {
         <Button
           color={'red'}
           label="Logout"
-          onPress={handleLogout}
+          onPress={() => setIsLogoutVisible(true)}
           type={'outline'}
         />
       </View>
+      {isLogoutVisible && (
+        <Modal
+          onBackdropPress={() => handleBackdropPress()}
+          deviceHeight={+getDimensions().height}
+          deviceWidth={+getDimensions().width}
+          isVisible={isLogoutVisible}>
+          <View style={styles.logout_card}>
+            <LogoutCard userName="Test" handleLogout={() => handleLogout()} />
+          </View>
+        </Modal>
+      )}
     </Page>
   );
 };

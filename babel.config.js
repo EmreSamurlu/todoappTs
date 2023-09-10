@@ -28,7 +28,7 @@ module.exports = {
           '@components': './src/components',
           '@features': './src/redux/features',
           '@redux': './src/redux/*',
-          '@utils': './src/utils',
+          '@utils': './src/utils/utils',
           '@constants': './src/constants',
           '@styles': './src/styles',
           '@routes': './src/navigation/route-names',

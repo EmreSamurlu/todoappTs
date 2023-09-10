@@ -25,20 +25,19 @@ export interface CalendarProps {
   todayLoading: boolean;
 }
 
+export type taskType = {
+  id?: number;
+  date: string;
+  title: string;
+  category: string;
+  isCompleted: boolean;
+};
 export interface TaskListProps {
-  tasks: [
-    {
-      id: number;
-      date: string;
-      title: string;
-      category: string;
-      startingDay?: boolean;
-      endingDay?: boolean;
-      color?: string;
-      periods?: object[];
-      isCompleted: boolean;
-    },
-  ];
+  tasks: taskType[];
   tasksError: object | null;
   tasksLoading: boolean;
+
+  task: taskType;
+  taskError: object | null;
+  taskLoading: boolean;
 }

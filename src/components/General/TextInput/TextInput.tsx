@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import {TextInput as Input, View} from 'react-native';
-import styles from './TextInput.styles';
+
 import {useTheme} from '@react-navigation/native';
+
 import {getKeyValue} from '../../../utils/utils';
-import Text from '../Text/Text';
 import FontIcon from '../FontIcon';
+import Text from '../Text/Text';
+import styles from './TextInput.styles';
 
 export interface TextInputProps {
   onChangeText: (text: string) => void;
@@ -31,6 +33,9 @@ const TextInput: React.FC<TextInputProps> = ({
   const [isFocused, setIsFocused] = useState<boolean>(false);
 
   const styleType = getKeyValue(styles)(type);
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
 
   return (
     <View
@@ -51,9 +56,10 @@ const TextInput: React.FC<TextInputProps> = ({
         <Input
           style={[styleType.input, {color: colors.text}]}
           onEndEditing={() => setIsFocused(false)}
-          onFocus={() => setIsFocused(true)}
+          onFocus={() => handleFocus()}
           onChangeText={onChangeText}
           placeholder={placeholder}
+          placeholderTextColor={colors.secondaryText}
           value={value}
           secureTextEntry={secureTextEntry}
           autoCapitalize={autoCap}

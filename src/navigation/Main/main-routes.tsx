@@ -1,10 +1,11 @@
 import React from 'react';
+
 import {FontIcon, Text} from '../../components';
-import {routeNames} from '../route-names';
-import {Props} from './types';
-import styles from './Main.styles';
-import TaskMain from '../TaskMain/TaskMain';
 import Setting from '../Setting/Setting';
+import TaskMain from '../TaskMain/TaskMain';
+import {routeNames} from '../route-names';
+import styles from './Main.styles';
+import {Props} from './types';
 
 export const mainRoutes: Props[] = [
   {

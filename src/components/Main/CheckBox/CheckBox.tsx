@@ -1,9 +1,10 @@
-import {Pressable} from 'react-native';
 import React, {FC, useEffect, useState} from 'react';
+import {Pressable} from 'react-native';
+
 import {useTheme} from '@react-navigation/native';
 
-import styles from './CheckBox.styles';
 import {FontIcon} from '../../General';
+import styles from './CheckBox.styles';
 
 export interface CheckBoxProps {
   checkStatus: boolean;

@@ -1,12 +1,15 @@
 import React from 'react';
 import {View} from 'react-native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+
 import {useNavigation, useTheme} from '@react-navigation/native';
-import {Page, Text, Button, Visual} from '../../../components';
-import styles from './LandingPage.styles';
-import {routeNames} from '../../../navigation/route-names';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useSelector} from 'react-redux';
+
 import {RootState} from '@redux/store';
+
+import {Button, Page, Text, Visual} from '../../../components';
+import {routeNames} from '../../../navigation/route-names';
+import styles from './LandingPage.styles';
 
 export type RootStackParamList = {
   LandingPage: undefined;
@@ -27,7 +30,7 @@ const LandingPage = () => {
     }
   };
   return (
-    <Page pageStyle={styles.page_container}>
+    <Page pageStyle={styles.page_container} goBack={false} pageTitle="">
       <Visual
         image={theme === 'dark' ? 'logo_no_background' : 'logo_blue'}
         imageStyle={styles.logo}

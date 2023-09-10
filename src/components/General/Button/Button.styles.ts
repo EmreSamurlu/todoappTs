@@ -1,11 +1,13 @@
-import {radius, spacing} from '../../../styles';
 import {StyleSheet, ViewStyle} from 'react-native';
+
+import {radius, spacing} from '@styles';
 
 type Style = {
   container: ViewStyle;
   text_box: ViewStyle;
   label: ViewStyle;
   plus_icon: ViewStyle;
+  icon_box: ViewStyle;
 };
 
 const baseStyles = StyleSheet.create<Style>({
@@ -21,6 +23,7 @@ const baseStyles = StyleSheet.create<Style>({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
+    width: '100%',
   },
   label: {
     fontSize: 14,
@@ -30,6 +33,7 @@ const baseStyles = StyleSheet.create<Style>({
     fontSize: 20,
     fontWeight: '500',
   },
+  icon_box: {},
 });
 
 export default {
@@ -47,6 +51,9 @@ export default {
     text_box: {
       ...baseStyles.text_box,
     },
+    icon_box: {
+      marginLeft: spacing.sm,
+    },
   }),
   outline: StyleSheet.create({
     container: {
@@ -61,6 +68,9 @@ export default {
     },
     text_box: {
       ...baseStyles.text_box,
+    },
+    icon_box: {
+      marginLeft: spacing.sm,
     },
   }),
   icon: StyleSheet.create({
@@ -80,5 +90,6 @@ export default {
     text_box: {
       ...baseStyles.text_box,
     },
+    icon_box: {},
   }),
 };

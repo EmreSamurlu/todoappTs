@@ -1,4 +1,5 @@
 import React, {FC, ReactNode, useEffect, useState} from 'react';
+
 import Modal from 'react-native-modal';
 
 import {styles} from './Modal.styles';
@@ -8,7 +9,8 @@ export interface ModalProps {
   deviceWidth: number;
   deviceHeight: number;
   children: ReactNode;
-  selectedVisibility: boolean;
+  isVisible: boolean;
+  onBackdropPress: () => void;
 }
 
 const ModalComp: FC<ModalProps> = ({
@@ -16,23 +18,16 @@ const ModalComp: FC<ModalProps> = ({
   deviceWidth,
   deviceHeight,
   children,
-  selectedVisibility = true,
+  isVisible,
+  onBackdropPress,
 }) => {
-  const [modalVisible, setModalVisible] = useState(false);
-
-  useEffect(() => {
-    if (selectedVisibility) {
-      setModalVisible(true);
-    }
-  }, [selectedVisibility]);
-
   return (
     <>
       <Modal
-        onBackdropPress={() => setModalVisible(false)}
+        onBackdropPress={onBackdropPress}
         style={styles[modalType].container}
         swipeDirection={['down']}
-        isVisible={modalVisible}
+        isVisible={isVisible}
         deviceWidth={deviceWidth}
         deviceHeight={deviceHeight}>
         {children}

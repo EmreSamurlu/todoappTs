@@ -1,11 +1,14 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
+
 import {useTheme} from '@react-navigation/native';
-import styles from './Button.styles';
-import Text from '../Text/Text';
+
 import {getKeyValue} from '../../../utils/utils';
-import MaterialIcon from '../MaterialIcon/MaterialIcon';
+import FontIcon from '../FontIcon/FontIcon';
+import Text from '../Text/Text';
+import styles from './Button.styles';
+
 export interface ButtonProps {
   onPress: () => void;
   iconName?: string;
@@ -40,7 +43,6 @@ const Button: React.FC<ButtonProps> = ({
       ]}
       activeOpacity={0.8}>
       <View style={styleType.text_box}>
-        <MaterialIcon iconSize={24} iconName={iconName} iconColor={iconColor} />
         {type !== 'icon' && (
           <Text
             text={label}
@@ -49,6 +51,11 @@ const Button: React.FC<ButtonProps> = ({
               {color: type === 'outline' ? selectedColor : colors.buttonText},
             ]}
           />
+        )}
+        {iconName && iconColor && (
+          <View style={styleType.icon_box}>
+            <FontIcon iconName={iconName} iconColor={iconColor} iconSize={20} />
+          </View>
         )}
       </View>
     </TouchableOpacity>

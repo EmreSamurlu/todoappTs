@@ -49,7 +49,7 @@ const TaskList = () => {
         style={[styles.header_container, {borderBottomColor: colors.border}]}>
         <View style={styles.header_top_container}>
           <Text
-            text={today}
+            text={moment().format('MMM DD, YYYY')}
             textStyle={[styles.header, {color: colors.text}]}
           />
           <Visual image={'avatar'} imageStyle={styles.avatar} />
@@ -100,7 +100,7 @@ const TaskList = () => {
           onPress={handleAddButton}
           label=""
           type={'icon'}
-          iconName="plus"
+          iconName={'plus'}
           color={'blue'}
           iconColor={colors.buttonText}
         />

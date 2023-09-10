@@ -1,6 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 import {initialState} from './initialState';
+import {createTaskThunk} from './thunks/addNewTask';
 import {getTaskListThunk} from './thunks/getTaskList';
 
 export const taskListSlicer = createSlice({
@@ -18,6 +19,17 @@ export const taskListSlicer = createSlice({
     builder.addCase(getTaskListThunk.rejected, (state, action) => {
       state.tasksLoading = false;
       state.tasksError = action;
+    });
+    builder.addCase(createTaskThunk.pending, state => {
+      state.taskLoading = true;
+    });
+    builder.addCase(createTaskThunk.fulfilled, (state, action) => {
+      state.taskLoading = false;
+      state.task = action.payload;
+    });
+    builder.addCase(createTaskThunk.rejected, (state, action) => {
+      state.taskLoading = false;
+      state.taskError = action;
     });
   },
 });
